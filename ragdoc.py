@@ -31,9 +31,9 @@ template="""you are a helpful assistant
 prompt=ChatPromptTemplate.from_messages([("system",template),("human","question:{question} documents:{context}")])
 chain=RetrievalQA.from_chain_type(llm=llm,retriever=retriever,chain_type="stuff",chain_type_kwargs={"prompt":prompt},return_source_documents=True)
 
-"""while True:
+while True:
     ip=input("Query: ")
     if ip=="Bye":
         break
     result=chain.invoke(ip)
-    print(result["result"])"""
+    print(result["result"])
